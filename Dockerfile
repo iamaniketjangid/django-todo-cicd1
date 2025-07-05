@@ -10,7 +10,9 @@ RUN apt-get update && apt-get install -y python3-distutils
 RUN pip install django==3.2
 
 # Copy all files
-COPY . .
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
 
 # Run migrations
 RUN python manage.py migrate
